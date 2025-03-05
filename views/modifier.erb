@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Modifier article</title>
+    </head>
+    <body>
+        <h1>Modifier l'article</h1>
+        <form action="/mise_a_jour/<%= @article[:id] %>" method="post">
+            <label>Titre : </label>
+            <input type="text" name="titre" value="<%= @article[:titre] %>"></input>
+            <label>Contenu : </label>
+            <input type="text" name="contenu" value="<%= @article[:contenu] %>"></input>
+            <button type="submit">Mettre à jour</button>
+        </form>
+        <br>
+        <a href="/">Retour</a>
+    </body>
+</html>

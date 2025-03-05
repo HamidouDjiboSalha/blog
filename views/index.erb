@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            table {
+                width: 50%;
+                border-collapse: collapse;
+                margin: 25px 0;
+                font-size: 18px;
+                text-align: center;
+            }
+            th, td {
+                padding: 12px;
+                border: 1px solid #ddd;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Liste des articles</h1>
+        <a href="/creer_article">Créer un nouvel article</a>
+        <br><br>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Action</th>
+            </tr>
+            <% @articles.each do |article| %>
+            <tr>
+                <td><%= article[:id] %></td>
+                <td><%= article[:titre] %></td>
+                <td><%= article[:contenu] %></td>
+                <td>
+                <a href="/modifier_article/<%= article[:id] %>">Modifier</a><br>
+                    <form action="/supprimer/<%= article[:id] %>" method="post">
+                        <button type="submit" onclick="return confirm('Supprimer cet article ?');">Supprimer</button>
+                    </form>
+                </td>
+            </tr>
+            <% end %>
+        </table>
+    </body>
+</html>
