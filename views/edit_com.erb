@@ -1,0 +1,13 @@
+<h1>Modifier le commentaire</h1>
+
+<form action="/article/<%= @article[:id] %>/mise_a_jour_commentaire/<%= @index %>" method="post">
+  <label for="auteur">Votre nom :</label>
+  <input type="text" name="auteur" value="<%= @commentaire[:auteur] %>" required>
+
+  <label for="contenu">Votre commentaire :</label>
+  <textarea name="contenu" required><%= @commentaire[:contenu] %></textarea>
+
+  <button type="submit">Modifier</button>
+</form>
+
+<a href="/article/<%= @article[:id] %>">Annuler</a>

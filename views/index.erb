@@ -35,10 +35,11 @@
                 <td><%= article[:titre] %></td>
                 <td><%= article[:contenu] %></td>
                 <td>
-                <a href="/modifier_article/<%= article[:id] %>">Modifier</a><br>
+                    <a href="/modifier_article/<%= article[:id] %>">Modifier</a><br>
                     <form action="/supprimer/<%= article[:id] %>" method="post">
                         <button type="submit" onclick="return confirm('Supprimer cet article ?');">Supprimer</button>
                     </form>
+                    <a href="/article/<%= article[:id] %>">Voir</a>
                 </td>
             </tr>
             <% end %>

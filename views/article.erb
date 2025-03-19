@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Detail article</title>
+    </head>
+    <body>
+    <h1>Détails article</h1>
+
+    <p>Id : <strong><%= @article[:id] %></strong></p>
+    <p>Titre : <strong><%= @article[:titre] %></strong></p>
+    <p>Contenu : <strong><%= @article[:contenu] %></strong></p>
+    
+    <br>
+    <h2>Commentaires :</h2>
+    <% if @article[:commentaires] && @article[:commentaires].any? %>
+        <% @article[:commentaires].each_with_index do |commentaire, index| %>
+        <p><strong><%= commentaire[:auteur] %></strong> (<%= commentaire[:date] %>) :</p>
+        <p><%= commentaire[:contenu] %></p>
+    
+        <form action="/article/<%= @article[:id] %>/modifier_commentaire/<%= index %>" method="get" style="display:inline;">
+            <button type="submit">Modifier</button>
+        </form>
+        
+        <form action="/article/<%= @article[:id] %>/supprimer_commentaire/<%= index %>" method="post" style="display:inline;">
+            <button type="submit" onclick="return confirm('Supprimer ce commentaire ?');">Supprimer</button>
+        </form>
+    <% end %>
+    <% else %>
+      <p>Aucun commentaire pour cet article.</p>
+    <% end %>
+    
+    <br><br>
+    <h2>Ajouter un commentaire :</h2>
+     <form action="/article/<%= @article[:id] %>/commentaire" method="post">
+      <label for="auteur">Votre nom :</label>
+      <input type="text" name="auteur" required>
+    
+      <label for="contenu">Votre commentaire :</label>
+      <textarea name="contenu" required></textarea>
+    
+      <button type="submit">Ajouter</button>
+    </form>
+    <br>
+    <a href="/">Retour</a>
+    
+    </body>
+</html>
+

@@ -1,7 +1,26 @@
 [
   {
     "id": 1,
-    "titre": "hello3",
-    "contenu": "body3"
+    "titre": "hello",
+    "contenu": "body",
+    "commentaires": [
+      {
+        "auteur": "Maryam",
+        "contenu": "nkhk",
+        "date": "18/03/2025 15:14"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "titre": "hello1",
+    "contenu": "jkjk",
+    "commentaires": [
+      {
+        "auteur": "Hamid Sal",
+        "contenu": "jhjjk",
+        "date": "18/03/2025 15:27"
+      }
+    ]
   }
 ]
